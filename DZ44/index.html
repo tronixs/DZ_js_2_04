@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>DZ44</title>
+</head>
+<body>
+    <div class="art">
+    Задание 1
+       <p>1. Дан большой текст, в котором для оформления прямой речи используются одинарные кавычки.
+        Придумать шаблон, который заменяет одинарные кавычки на двойные.
+        </p>
+       <p>
+        One: 'Hi Mary.'
+        Two: 'Oh, hi.'
+        One: 'How are you doing?'
+        Two: 'I'm doing alright. How about you?'
+        One: 'Not too bad. The weather is great isn't it?'
+        Two: 'Yes. It's absolutely beautiful today.'
+        One: 'I wish it was like this more frequently.'
+        Two: 'Me too.'
+        One: 'So where are you going now?'
+        Two: 'I'm going to meet a friend of mine at the department store'
+        One: 'Going to do a little shopping?'
+        Two: 'Yeah, I have to buy some presents for my parents.'
+        One: 'What's the occasion?'
+        Two: 'It's their anniversary.'
+        One: 'That's great. Well, you better get going. You don't want to be late.'
+        Two: 'I'll see you next time.'
+        One: 'Sure. Bye.'
+       </p>
+       <p>
+        Пояснения:
+       </p>
+       <p>
+        Первое задание не должно зависеть от второго и наоборот. Оба задания должны быть независимы
+       </p>
+       <p>
+        1. Замена всех одинарных кавычек без форматирования текста
+       </p>
+       <p>
+        document.querySelector('.p1_result').insertAdjacentHTML('beforeend', text1.innerText.replaceAll('\'', '\"'));
+       </p>
+       <p>
+        2. Замена всех одинарных кавычек за исключением апострофов c форматированием текста
+        </p>
+       <p>
+        const text2 = text1.innerText.replaceAll('\.\'', '\.\"< br >'); - замена одинарных кавычек после точек на конце строки;
+       </p>
+    <p>
+        const text3 = text2.replaceAll('\?\'', '\?\"< br >'); - замена одинарных кавычек после знака вопроса на конце строки;
+    </p>
+    <p>
+        document.querySelector('.p2_result').insertAdjacentHTML('beforeend', text3.replaceAll(' \' ', ' \" ')); - замена одинарных кавычек в начале строки.
+    </p>
+</div>
+    <div class="flex">
+        <div class="a1">
+           <h2>
+               Замена всех одинарных кавычек без форматирования текста
+           </h2>
+            <p class="p1_result">
+                One: "Hi Mary."
+                Two: "Oh, hi."
+                One: "How are you doing?"
+                Two: "I"m doing alright. How about you?"
+                One: "Not too bad. The weather is great isn"t it?"
+                Two: "Yes. It"s absolutely beautiful today."
+                One: "I wish it was like this more frequently."
+                Two: "Me too."
+                One: "So where are you going now?"
+                Two: "I"m going to meet a friend of mine at the department store"
+                One: "Going to do a little shopping?"
+                Two: "Yeah, I have to buy some presents for my parents."
+                One: "What"s the occasion?"
+                Two: "It"s their anniversary."
+                One: "That"s great. Well, you better get going. You don"t want to be late."
+                Two: "I"ll see you next time."
+                One: "Sure. Bye."
+            </p>
+        </div>
+        <div class="a2">
+            <h2>
+                Замена всех одинарных кавычек за исключением апострофов c форматированием  текста
+            </h2>
+            <p class="p2_result">
+                One: "Hi Mary."
+                Two: "Oh, hi."
+                One: "How are you doing?"
+                Two: "I'm doing alright. How about you?"
+                One: "Not too bad. The weather is great isn't it?"
+                Two: "Yes. It's absolutely beautiful today."
+                One: "I wish it was like this more frequently."
+                Two: "Me too."
+                One: "So where are you going now?"
+                Two: "I'm going to meet a friend of mine at the department store' One: "Going to do a little shopping?"
+                Two: "Yeah, I have to buy some presents for my parents."
+                One: "What's the occasion?"
+                Two: "It's their anniversary."
+                One: "That's great. Well, you better get going. You don't want to be late."
+                Two: "I'll see you next time."
+                One: "Sure. Bye."
+            </p>
+        </div>
+    </div>
+    <div class="art">
+    Задание 2
+    <p>
+        2. Улучшить шаблон так, чтобы в конструкциях типа aren't одинарная кавычка не заменялась на двойную.
+    </p>
+    <p>
+        Пояснения:
+    </p>
+    <p>
+        Первое задание не должно зависеть от второго и наоборот. Оба задания должны быть независимы
+    </p>
+    <p>
+        За исходный шаблон принят шаблон с заменой всех кавычек без форматирования.
+    </p>
+    <p>
+        1. Замена всех одинарных кавычек без форматирования текста
+    </p>
+    <p>
+        document.querySelector('.p1_result').insertAdjacentHTML('beforeend', text1.innerText.replaceAll('\' ', '\" '));
+    </p>
+    <p>
+        2. Замена всех одинарных кавычек за исключением апострофов c форматированием текста.
+    </p>
+    <p>
+        let regexp = /\B'/g; - регулярное выражение на замену всех одинарных кавычек кроме апострофов, без форматирования текста;
+    </p>
+    <p>
+        let text5 = text1.innerText.replace(regexp, ' " '); - замена всех одинарных кавычек кроме апострофов;
+    </p>
+    <p>
+        let regexp1 = /\"\B/g; - регулярное выражение на вставку переноса строки;
+    </p>
+    <p>
+        document.querySelector('.p4_result').insertAdjacentHTML('beforeend', text5.replace(regexp1, '\"< br >')); - вставка переноса строки.
+    </p>
+    </div>
+    
+    <div class="flex">
+        <div class="a1">
+            <h2>
+                Замена всех одинарных кавычек без форматирования текста
+            </h2>
+            <p class="p3_result">
+                One: "Hi Mary."
+                Two: "Oh, hi."
+                One: "How are you doing?"
+                Two: "I"m doing alright. How about you?"
+                One: "Not too bad. The weather is great isn"t it?"
+                Two: "Yes. It"s absolutely beautiful today."
+                One: "I wish it was like this more frequently."
+                Two: "Me too."
+                One: "So where are you going now?"
+                Two: "I"m going to meet a friend of mine at the department store"
+                One: "Going to do a little shopping?"
+                Two: "Yeah, I have to buy some presents for my parents."
+                One: "What"s the occasion?"
+                Two: "It"s their anniversary."
+                One: "That"s great. Well, you better get going. You don"t want to be late."
+                Two: "I"ll see you next time."
+                One: "Sure. Bye."
+            </p>
+        </div>
+        <div class="a2">
+            <h2>
+                Без замены апострофов на двойные кавычки и c форматированием текста
+            </h2>
+            <p class="p4_result">
+                One: "Hi Mary."
+                Two: "Oh, hi."
+                One: "How are you doing?"
+                Two: "I'm doing alright. How about you?"
+                One: "Not too bad. The weather is great isn't it?"
+                Two: "Yes. It's absolutely beautiful today."
+                One: "I wish it was like this more frequently."
+                Two: "Me too."
+                One: "So where are you going now?"
+                Two: "I'm going to meet a friend of mine at the department store' One: "Going to do a little shopping?"
+                Two: "Yeah, I have to buy some presents for my parents."
+                One: "What's the occasion?"
+                Two: "It's their anniversary."
+                One: "That's great. Well, you better get going. You don't want to be late."
+                Two: "I'll see you next time."
+                One: "Sure. Bye."
+            </p>
+        </div>
+    </div>
+    
+</body>
+    <script defer="" src="script.js"></script>
+</html>
